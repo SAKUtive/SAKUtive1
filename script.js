@@ -12,11 +12,12 @@ document.querySelectorAll(".project-card").forEach((card) => {
 document.querySelectorAll(".member-flip-card").forEach((card) => {
   const button = card.querySelector(".member-flip-trigger");
   if (!button) return;
+  const memberName = card.querySelector(".member-info h3").textContent.trim();
 
   button.addEventListener("click", () => {
     const flipped = card.classList.toggle("is-flipped");
     button.setAttribute("aria-pressed", String(flipped));
-    button.setAttribute("aria-label", flipped ? "山田 優弥の紹介に戻る" : "山田 優弥の写真を表示");
+    button.setAttribute("aria-label", flipped ? `${memberName}の紹介に戻る` : `${memberName}の写真を表示`);
   });
 });
 
